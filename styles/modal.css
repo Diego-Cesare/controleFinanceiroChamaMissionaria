@@ -59,7 +59,24 @@
 .modal-body input {
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  color: var(--fg);
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.5s;
+  box-shadow:
+    0px -1px 2px var(--red),
+    -1px 0px 2px var(--accent),
+    0px 1px 2px var(--red),
+    1px 0px 2px var(--accent);
+}
+
+.modal-body input:focus {
+  box-shadow:
+    0px -3px 2px var(--accent),
+    -3px 0px 2px var(--red),
+    0px 3px 2px var(--accent),
+    3px 0px 2px var(--red);
 }
 
 .modal-body button {

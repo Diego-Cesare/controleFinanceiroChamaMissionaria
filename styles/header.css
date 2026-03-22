@@ -1,5 +1,5 @@
 header {
-  height: 20%;
+  height: 25%;
   background-color: var(--accent);
   display: flex;
   flex-direction: column;
@@ -21,17 +21,19 @@ header .saldo-atual h1 {
 header .receita {
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  gap: 10px;
+  width: 100%;
 }
 
 .total-receita,
 .total-despesas {
   display: flex;
   flex-direction: column;
+  min-width: 50%;
 }
 
 .total-receita span,
 .total-despesas span {
   color: var(--bg);
-  font-size: 1.2rem;
+  font-size: 1rem;
 }

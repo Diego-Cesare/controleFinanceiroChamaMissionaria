@@ -198,18 +198,24 @@ main {
 
 .filtros {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  justify-content: space-around;
   margin: 15px 0;
 }
 
 .filtros button {
-  padding: 6px 12px;
+  padding: 4px 8px;
   border-radius: 20px;
   border: none;
   cursor: pointer;
+  font-size: 0.88rem;
   color: var(--fg);
   background-color: transparent;
   transition: 0.4s;
+}
+
+.filtros button:active {
+  background-color: var(--red);
 }
 
 .filtros button.active {
