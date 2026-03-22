@@ -20,6 +20,7 @@ footer button {
   font-size: 0.9rem;
   color: var(--fg);
   border-radius: 10px;
+  transition: 1s;
 }
 
 footer button .material-symbols-outlined {

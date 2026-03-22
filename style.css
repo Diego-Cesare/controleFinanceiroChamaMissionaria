@@ -178,7 +178,7 @@ main {
   gap: 10px;
   font-weight: bold;
   overflow: scroll;
-  max-height: 430px;
+  max-height: 400px;
 }
 
 .lista-historico strong {
