@@ -1,0 +1,222 @@
+@import "./styles/styles.css";
+@import "./styles/footer.css";
+@import "./styles/header.css";
+@import "./styles/modal.css";
+
+.home,
+.page-container {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+}
+
+main {
+  flex: 1;
+  padding: 10px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.card-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 1px 1px 10px var(--fg);
+  padding: 20px;
+  gap: 10px;
+  border-radius: 10px;
+}
+
+.card-box:nth-child(3) {
+  grid-column: span 2; /* ocupa as 2 colunas */
+  justify-self: center; /* centraliza horizontalmente */
+  width: 100%; /* opcional: deixa com largura menor */
+}
+
+.card-box span {
+  font-size: 1.2rem;
+}
+
+.card-box strong {
+  font-size: 1.4rem;
+  padding: 4px 6px;
+  border-radius: 4px;
+  background-color: var(--accent-hover);
+  color: var(--accent);
+}
+
+.totais {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.totais .totais-box {
+  box-shadow: 1px 1px 10px var(--fg);
+  border-radius: 10px;
+  display: grid;
+  padding: 10px;
+}
+
+.totais .totais-box span {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.totais .totais-box .material-symbols-outlined {
+  font-size: 2rem;
+  background-color: var(--accent-hover);
+  color: var(--accent);
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.totais .totais-box:nth-child(3) .material-symbols-outlined {
+  font-size: 2rem;
+  background-color: var(--red-hover);
+  color: var(--red);
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.totais .totais-box strong {
+  font-size: 1.8rem;
+  text-align: end;
+  margin-right: 20px;
+}
+
+.lista-dizimos {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  max-height: 640px;
+  gap: 10px;
+}
+
+.dizimo-item {
+  border: dashed 1px var(--fg);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.dizimo-item .linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.linha strong {
+  line-height: 1;
+  font-size: 1.2rem;
+}
+
+.linha span {
+  line-height: 1;
+  font-size: 1.1rem;
+}
+
+.dizimo-item .info {
+  margin-top: 25px;
+  color: var(--fg);
+  font-size: 14px;
+}
+
+.linha .btn-delete {
+  background-color: var(--red-hover);
+  color: var(--red);
+  max-width: 100px;
+  max-height: 30px;
+  align-self: flex-start;
+}
+
+/* Pagina de titulos */
+.page-container {
+  padding: 10px;
+}
+
+.page-container .page-titulo {
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0px;
+}
+
+.page-container .page-titulo .material-symbols-outlined {
+  background-color: var(--accent-hover);
+  color: var(--accent);
+  font-size: 2rem;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.page-container button {
+  background-color: var(--accent);
+  width: 100%;
+  padding: 10px 0px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--bg);
+  gap: 20px;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+
+.lista-historico {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: bold;
+  overflow: scroll;
+  max-height: 66%;
+}
+
+.lista-historico strong {
+  background-color: var(--accent-hover);
+  color: var(--accent);
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.lista-historico small {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.filtros {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.filtros button {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  color: var(--fg);
+  background-color: transparent;
+  transition: 0.4s;
+}
+
+.filtros button.active {
+  background: var(--accent-hover);
+  color: var(--accent);
+}
+
+.excel-btn {
+  margin-bottom: 15px;
+}

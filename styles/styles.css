@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+  --bg: #fff;
+  --fg: #708090;
+  --accent: #3972ec;
+  --accent-hover: #3972ec38;
+  --red: rgb(255, 114, 150);
+  --red-hover: rgba(255, 36, 91, 0.247);
+  --green: #487a4c;
+  --green-hover: #46964b54;
+}
+
+[data-view] {
+  transform: translateY(-850px);
+  transition: 0.8s;
+}
+
+[data-view].active {
+  transform: translateY(0);
+  display: block;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  height: 100dvh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}

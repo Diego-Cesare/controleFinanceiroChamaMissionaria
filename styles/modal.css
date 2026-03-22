@@ -1,0 +1,73 @@
+/* Modal dizimo */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-sheet {
+  background: #fff;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+
+  transform: translateY(100%);
+  transition: 0.3s;
+}
+
+.modal-overlay.active .modal-sheet {
+  transform: translateY(0);
+}
+
+/* conteúdo */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); /* Safari */
+  display: flex;
+  align-items: flex-end;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.modal-body input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.modal-body button {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: var(--accent-hover);
+  color: var(--accent);
+  font-weight: bold;
+}

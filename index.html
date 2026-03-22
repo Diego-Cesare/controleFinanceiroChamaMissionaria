@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Controle Financeiro Igreja Chama Missionária</title>
+  </head>
+  <body>
+    <div class="home active" data-view="home">
+      <header>
+        <div class="saldo-atual">
+          <span>saldo atual</span>
+          <h1 id="saldoAtual">R$ 0,00</h1>
+        </div>
+        <div class="receita">
+          <div class="total-receita">
+            <span>Total</span>
+            <span><strong id="saldoTotal">R$0,00</strong></span>
+          </div>
+          <div class="total-despesas">
+            <span>Despesas</span>
+            <span><strong id="totalDeDespesas">R$0,00</strong></span>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="cards">
+          <div class="card-box">
+            <span>Dizimos</span>
+            <strong id="totalDeDizimo">R$0,00</strong>
+          </div>
+          <div class="card-box">
+            <span>Ofertas</span>
+            <strong id="totalDeOfertas">R$0,00</strong>
+          </div>
+          <!-- <div class="card-box">
+            <span>Campanhas</span>
+            <strong>R$1.400,00</strong>
+          </div> -->
+        </div>
+        <div class="totais">
+          <div class="totais-box">
+            <span
+              ><span class="material-symbols-outlined"> paid </span>Total de
+              dizimistas</span
+            >
+            <strong id="dizimistasTotal">0</strong>
+          </div>
+          <div class="totais-box">
+            <span
+              ><span class="material-symbols-outlined">
+                real_estate_agent
+              </span>
+              Total de ofertas</span
+            >
+            <strong id="ofertasTotal">0</strong>
+          </div>
+          <div class="totais-box">
+            <span
+              ><span class="material-symbols-outlined"> vital_signs </span>
+              Total de despesas</span
+            >
+            <strong id="despesasTotal">0</strong>
+          </div>
+        </div>
+      </main>
+    </div>
+    <section class="page-container" data-view="dizimos">
+      <div class="page-titulo">
+        <span class="material-symbols-outlined"> favorite </span>
+        <div>
+          <h2>Dizimos</h2>
+          <span>Total: <strong>R$0,00</strong></span>
+        </div>
+      </div>
+      <button id="abrirModalDizimo">
+        <span class="material-symbols-outlined"> add_2 </span> Registrar novo
+        dizimo
+      </button>
+      <div id="listaDizimos" class="lista-dizimos"></div>
+    </section>
+    <section class="page-container" data-view="ofertas">
+      <div class="page-titulo">
+        <span class="material-symbols-outlined"> real_estate_agent </span>
+        <div>
+          <h2>Ofertas</h2>
+          <span>Total: <strong>R$0,00</strong></span>
+        </div>
+      </div>
+      <button id="abrirModalOfertas">
+        <span class="material-symbols-outlined"> add_2 </span> Registrar nova
+        oferta
+      </button>
+      <div id="listaOfertas" class="lista-dizimos"></div>
+    </section>
+    <section class="page-container" data-view="despesas">
+      <div class="page-titulo">
+        <span class="material-symbols-outlined"> real_estate_agent </span>
+        <div>
+          <h2>Despesas</h2>
+          <span>Total: <strong>R$0,00</strong></span>
+        </div>
+      </div>
+      <button id="abrirModalDespesas">
+        <span class="material-symbols-outlined"> add_2 </span> Registrar nova
+        despesa
+      </button>
+      <div id="listaDespesas" class="lista-dizimos"></div>
+    </section>
+
+    <section class="page-container" data-view="historico">
+      <div class="page-titulo">
+        <span class="material-symbols-outlined">history</span>
+        <div>
+          <h2>Histórico</h2>
+          <span>Todos os registros</span>
+        </div>
+      </div>
+
+      <!-- 🔍 FILTROS -->
+      <div class="filtros">
+        <button data-filter="todos" class="active">Todos</button>
+        <button data-filter="dizimos">Dízimos</button>
+        <button data-filter="ofertas">Ofertas</button>
+        <button data-filter="despesas">Despesas</button>
+      </div>
+
+      <!-- 📥 EXPORTAR -->
+      <button id="exportarExcel" class="excel-btn">
+        <span class="material-symbols-outlined">download</span>
+        Exportar Excel
+      </button>
+
+      <!-- 📋 LISTA -->
+      <div id="listaHistorico" class="lista-historico"></div>
+    </section>
+
+    <footer>
+      <button data-target="dizimos" class="view">
+        <span class="material-symbols-outlined"> favorite </span>
+        Dizimos
+      </button>
+      <button data-target="ofertas" class="view">
+        <span class="material-symbols-outlined"> real_estate_agent </span>
+        Ofertas
+      </button>
+      <button id="home" data-target="home" class="view active">
+        <span class="material-symbols-outlined">home</span>
+        Inicio
+      </button>
+      <button data-target="despesas" class="view">
+        <span class="material-symbols-outlined"> vital_signs </span>
+        Despesas
+      </button>
+      <button data-target="historico" class="view">
+        <span class="material-symbols-outlined"> history </span>
+        Histórico
+      </button>
+    </footer>
+    <!-- Modal para adicionar dizimo -->
+    <div class="modal-overlay" id="modalDizimo">
+      <div class="modal-sheet">
+        <div class="modal-header">
+          <h3>Novo Dízimo</h3>
+          <span id="fecharModal" class="material-symbols-outlined">close</span>
+        </div>
+
+        <div class="modal-body">
+          <label>Nome do dizimista</label>
+          <input type="text" id="nomeDizimo" placeholder="Ex: João" />
+
+          <label>Valor</label>
+          <input type="number" id="valorDizimo" placeholder="Ex: 100" />
+
+          <label>Data</label>
+          <input type="date" id="dataDizimo" />
+
+          <button id="salvarDizimo">Registrar</button>
+        </div>
+      </div>
+    </div>
+    <!-- Modal para adicionar ofertas -->
+    <div class="modal-overlay" id="modalOfertas">
+      <div class="modal-sheet">
+        <div class="modal-header">
+          <h3>Nova Oferta</h3>
+          <span id="fecharModalOfertas" class="material-symbols-outlined"
+            >close</span
+          >
+        </div>
+
+        <div class="modal-body">
+          <label>Valor</label>
+          <input type="number" id="valorOferta" placeholder="Ex: 100" />
+
+          <label>Data</label>
+          <input type="date" id="dataOferta" />
+
+          <button id="salvarOferta">Registrar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para adicionar as despesas -->
+    <div class="modal-overlay" id="modalDespesas">
+      <div class="modal-sheet">
+        <div class="modal-header">
+          <h3>Nova Despesa</h3>
+          <span id="fecharModalDespesas" class="material-symbols-outlined"
+            >close</span
+          >
+        </div>
+
+        <div class="modal-body">
+          <label>Tipo de despesa</label>
+          <input
+            type="text"
+            id="nomeDespesa"
+            placeholder="Ex: Conta de energia"
+          />
+
+          <label>Valor</label>
+          <input type="number" id="valorDespesa" placeholder="Ex: 100" />
+
+          <label>Data</label>
+          <input type="date" id="dataDespesa" />
+
+          <button id="salvarDespesas">Registrar</button>
+        </div>
+      </div>
+    </div>
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/openModal.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+    <script type="module" src="scripts/history.js"></script>
+  </body>
+</html>
