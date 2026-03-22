@@ -96,7 +96,7 @@ main {
   display: flex;
   flex-direction: column;
   overflow: scroll;
-  max-height: 640px;
+  max-height: 540px;
   gap: 10px;
 }
 
