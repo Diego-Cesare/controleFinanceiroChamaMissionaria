@@ -1,30 +1,53 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-  --bg: #fff;
-  --fg: #708090;
+  --bg: #131313;
+  --fg: #ffffff;
   --accent: #3972ec;
-  --accent-hover: #3972ec38;
-  --red: rgb(255, 114, 150);
-  --red-hover: rgba(255, 36, 91, 0.247);
-  --green: #487a4c;
-  --green-hover: #46964b54;
+  --shadow: #000000;
+  --accent-hover: #3972ec1c;
+  --red: rgb(255, 151, 177);
+  --red-hover: rgba(255, 36, 91, 0.103);
+  --green: #6eff7a;
+  --green-hover: #6eff7a2c;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f5f7fa;
+    --fg: #2c2c2c;
+    --shadow: #13131346;
+    --accent: #447fff;
+    --accent-hover: #3972ec1a;
+    --red: #e5486d;
+    --red-hover: #e5486d1a;
+    --green: #1db954;
+    --green-hover: #1db9541a;
+  }
 }
 
 [data-view] {
-  transform: translateY(-850px);
-  transition: 0.8s;
+  transform: translate3d(0, -1850px, 0) scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    transform 0.5s cubic-bezier(0.2, 0.8, 0.8, 1),
+    opacity 0.6s ease;
+
+  will-change: transform, opacity;
 }
 
 [data-view].active {
-  transform: translateY(0);
-  display: block;
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;

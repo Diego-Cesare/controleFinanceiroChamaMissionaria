@@ -43,7 +43,12 @@
   transition: 0.3s;
 }
 
+.modal-sheet {
+  background-color: var(--bg);
+}
+
 .modal-header {
+  background-color: var(--bg);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,6 +59,7 @@
   flex-direction: column;
   gap: 10px;
   margin-top: 10px;
+  background-color: var(--bg);
 }
 
 .modal-body input {
@@ -63,6 +69,7 @@
   border: none;
   font-size: 1rem;
   font-weight: bold;
+  background-color: var(--bg);
   transition: 0.5s;
   box-shadow:
     0px -1px 2px var(--red),
